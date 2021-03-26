@@ -18,7 +18,7 @@ headers = {
          
 }
 
-bot = telebot.TeleBot("1322933786:AAFqAJBs1mLNR2n35YphYD_FHcvJcebcG5U")
+bot = telebot.TeleBot("token")
 
 
 
@@ -45,7 +45,7 @@ def send_document(message):
                 print("out ans")
                 bot.send_message(message.chat.id, 'تم حذف سوالك من قبل موقع ...تحقق من رابط ', reply_to_message_id=message.message_id)
             else:
-                print("l am anser")
+                print(" Anser")
 
 
 
