@@ -33,14 +33,14 @@ def welcome_help(message):
 def send_document(message):
     if message.chat.type == 'supergroup':
       if message.text.startswith("https://www.bartleby.com/questions-and-answers"):
-            #bot.send_message(message.chat.id, 'سوف يتم ارسال الحل قريبا ',reply_to_message_id=message.message_id)
+            
             r = requests.get(message.text, headers=headers)
             soup = s(r.content,'html.parser')
             x0=soup.find('h3')
             print(x0.text)
             if "This question hasn't been answered yet." in x0.text :
                 print("no anser")
-                bot.send_message(message.chat.id, 'لم يتم حل سوال ...تحقق من رابط ', reply_to_message_id=message.message_id)
+                bot.send_message(message.chat.id, "لم يتم حل سوال ...تحقق من رابط --This question hasn't been answered yet ", reply_to_message_id=message.message_id)
             elif "Don't worry! We won't leave you hanging. Plus, we're giving you back one question for the inconvenience." in x0.text :
                 print("out ans")
                 bot.send_message(message.chat.id, 'تم حذف سوالك من قبل موقع ...تحقق من رابط ', reply_to_message_id=message.message_id)
